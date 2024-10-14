@@ -13,50 +13,70 @@ public partial class Ejercicio01 : ContentPage
 
 	// MÉTODOS
 
-	private Button CrearBoton(string text, int tamanio)
-	{
-		Button button = new Button
-		{
-			Text = text,
-			WidthRequest = tamanio
-		};
 
-		button.Clicked += (s, e) => ButtonClicked(s, e);
-
-		return button;
-	}
-
-    private void GenerarClicked(object sender, EventArgs e)
+    private void ClickerButtonGenerar(object sender, EventArgs e)
     {
-		int cont = 0;
 
-		for (int fila = 0; fila < ConvertirInt(EntryNumBotones.Text); fila++)
+
+        // Eliminar solo las filas, al eliminar un elemento,
+        // los indice cambian, por eso lo hago inverso,
+        // si lo hago de derecha a izquierda, los índices no cambian
+        for (int indice = MainVSL.Children.Count - 1; indice >= 0; indice--)
+        {
+            if (MainVSL.Children[indice] is HorizontalStackLayout)
+            {
+                MainVSL.Children.RemoveAt(indice);
+            }
+        }
+
+        int cont = 0;
+
+		for (int fila = 0; fila < Metodos.ConvertirInt(EntryNumBotones.Text); fila++)
 		{
             filas = new HorizontalStackLayout();
 
-			for(int column = 0; column < ConvertirInt(EntryNumBotones.Text); column++)
+			for(int column = 0; column < Metodos.ConvertirInt(EntryNumBotones.Text); column++)
 			{
                 cont++;
 
-                filas.Add(CrearBoton(cont.ToString(), 40));
+                filas.Children.Add(CrearBoton(cont.ToString(), 60));
 			}
 
-			MainVSL.Add(filas);
+            MainVSL.Add(filas);
 
 
 		}
     }
 
+    private Button CrearBoton(string text, int tamanio)
+    {
+        Button button = new Button
+        {
+            Text = text,
+            WidthRequest = tamanio,
+            HeightRequest = tamanio
+
+
+        };
+
+        button.Clicked += (s, e) => ButtonClicked(s, e);
+
+        return button;
+    }
+
+
     private void ButtonClicked(object sender, EventArgs e)
 	{
         Button boton = (Button)sender;
 
-        DisplayAlert("Mensaje", boton.Text, "Ok");
+        MostrarMensaje(boton.Text);
+
 	}
 
+    private void MostrarMensaje(string mensaje)
+    {
+        DisplayAlert("Mensaje", mensaje, "Ok");
+    }
 
-    private int ConvertirInt(string text)
-	{
-		return Convert.ToInt32(text);
-	}
+
 }
