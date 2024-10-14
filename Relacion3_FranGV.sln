@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Relacion3_FranGV", "Relacion3_FranGV\Relacion3_FranGV.csproj", "{6980F98B-7B31-466E-AB9E-27FE642605AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6980F98B-7B31-466E-AB9E-27FE642605AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6980F98B-7B31-466E-AB9E-27FE642605AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6980F98B-7B31-466E-AB9E-27FE642605AC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6980F98B-7B31-466E-AB9E-27FE642605AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6980F98B-7B31-466E-AB9E-27FE642605AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6980F98B-7B31-466E-AB9E-27FE642605AC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEE19EE8-3E66-4A20-BF2A-55A85DBA8D83}
+	EndGlobalSection
+EndGlobal

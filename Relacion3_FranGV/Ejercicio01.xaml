@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Relacion3_FranGV.Ejercicio01"
+             Title="Ejercicio01">
+    <VerticalStackLayout
+        x:Name="MainVSL">
+        <Label 
+            Text="Ingrese el número de botones que desee:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry
+            x:Name="EntryNumBotones"
+            />
+        <Button
+            Text="Generar Botones"
+            x:Name="ButtonGenerar"
+            Clicked="GenerarClicked"
+            />
+        
+
+    </VerticalStackLayout>
+</ContentPage>
