@@ -16,7 +16,12 @@ public partial class Ejercicio01 : ContentPage
 
     private void ClickerButtonGenerar(object sender, EventArgs e)
     {
+        bool esValido = true;
+        string mensajeError = "";
+        try
+        {
 
+        
 
         // Eliminar solo las filas, al eliminar un elemento,
         // los indice cambian, por eso lo hago inverso,
@@ -46,6 +51,17 @@ public partial class Ejercicio01 : ContentPage
 
 
 		}
+
+        }
+        catch(Exception error)
+        {
+            esValido = false;
+            mensajeError = error.Message;
+        }
+        finally
+        {
+            if (!esValido) MostrarMensaje($"Error: {mensajeError}");
+        }
     }
 
     private Button CrearBoton(string text, int tamanio)
