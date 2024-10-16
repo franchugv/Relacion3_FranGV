@@ -26,40 +26,52 @@ public partial class Ejercicio01 : ContentPage
         };
 
         int contadorBotones = 0;
+        bool esValido = true;
+        string mensajeError = "";
 
 
-
-        // Eliminar solo las filas, al eliminar un elemento,
-        // los indice cambian, por eso lo hago inverso,
-        // si lo hago de derecha a izquierda, los índices no cambian
-        for (int indice = MainVSL.Children.Count - 1; indice >= 0; indice--)
+        try
         {
-            if (MainVSL.Children[indice] is HorizontalStackLayout)
+            
+            // Eliminar solo las filas, al eliminar un elemento,
+            // los indice cambian, por eso lo hago inverso,
+            // si lo hago de derecha a izquierda, los índices no cambian
+            for (int indice = MainVSL.Children.Count - 1; indice >= 0; indice--)
             {
-                MainVSL.Children.RemoveAt(indice);
-            }
-        }
-
-
-        // Generación de los botones
-
-        for (int fila = 0; fila < Metodos.ConvertirInt(EntryNumBotones.Text); fila++)
-        {
-            filasBotones = new HorizontalStackLayout();
-
-            for (int columna = 0; columna < Metodos.ConvertirInt(EntryNumBotones.Text); columna++)
-            {
-                contadorBotones++;
-
-                // Adición a la fila + Subscripción al evento
-                filasBotones.Children.Add(CrearBoton(contadorBotones.ToString(), 60));
+                if (MainVSL.Children[indice] is HorizontalStackLayout)
+                {
+                    MainVSL.Children.RemoveAt(indice);
+                }
             }
 
-            MainVSL.Add(filasBotones);
+
+            // Generación de los botones
+
+            for (int fila = 0; fila < Metodos.ConvertirInt(EntryNumBotones.Text); fila++)
+            {
+                filasBotones = new HorizontalStackLayout();
+
+                for (int columna = 0; columna < Metodos.ConvertirInt(EntryNumBotones.Text); columna++)
+                {
+                    contadorBotones++;
+
+                    // Adición a la fila + Subscripción al evento
+                    filasBotones.Children.Add(CrearBoton(contadorBotones.ToString(), 60));
+                }
+
+                MainVSL.Add(filasBotones);
 
 
+            }
+        }catch(Exception error)
+        {
+            esValido = false;
+            mensajeError = error.Message;
         }
-
+        finally
+        {
+            if (!esValido) MostrarMensaje($"Error: {mensajeError}");
+        }
 
     }
 
