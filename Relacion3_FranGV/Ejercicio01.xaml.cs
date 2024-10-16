@@ -20,10 +20,7 @@ public partial class Ejercicio01 : ContentPage
     {
 
         // Recursos
-        HorizontalStackLayout filasBotones = new HorizontalStackLayout
-        {
-            HorizontalOptions = LayoutOptions.Center
-        };
+        HorizontalStackLayout filasBotones = new HorizontalStackLayout();
 
         int contadorBotones = 0;
         bool esValido = true;
@@ -49,7 +46,7 @@ public partial class Ejercicio01 : ContentPage
 
             for (int fila = 0; fila < Metodos.ConvertirInt(EntryNumBotones.Text); fila++)
             {
-                filasBotones = new HorizontalStackLayout();
+                filasBotones = new HorizontalStackLayout { HorizontalOptions = LayoutOptions.Center };
 
                 for (int columna = 0; columna < Metodos.ConvertirInt(EntryNumBotones.Text); columna++)
                 {
