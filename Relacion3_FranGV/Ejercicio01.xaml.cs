@@ -3,25 +3,31 @@ namespace Relacion3_FranGV;
 public partial class Ejercicio01 : ContentPage
 {
 
-    HorizontalStackLayout filas = new HorizontalStackLayout();
+
+
+
 
 
     public Ejercicio01()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
 
-	// MÉTODOS
+    // MÉTODOS
 
 
     private void ClickerButtonGenerar(object sender, EventArgs e)
     {
-        bool esValido = true;
-        string mensajeError = "";
-        try
-        {
 
-        
+        // Recursos
+        HorizontalStackLayout filasBotones = new HorizontalStackLayout
+        {
+            HorizontalOptions = LayoutOptions.Center
+        };
+
+        int contadorBotones = 0;
+
+
 
         // Eliminar solo las filas, al eliminar un elemento,
         // los indice cambian, por eso lo hago inverso,
@@ -34,43 +40,44 @@ public partial class Ejercicio01 : ContentPage
             }
         }
 
-        int cont = 0;
 
-		for (int fila = 0; fila < Metodos.ConvertirInt(EntryNumBotones.Text); fila++)
-		{
-            filas = new HorizontalStackLayout();
+        // Generación de los botones
 
-			for(int column = 0; column < Metodos.ConvertirInt(EntryNumBotones.Text); column++)
-			{
-                cont++;
-
-                filas.Children.Add(CrearBoton(cont.ToString(), 60));
-			}
-
-            MainVSL.Add(filas);
-
-
-		}
-
-        }
-        catch(Exception error)
+        for (int fila = 0; fila < Metodos.ConvertirInt(EntryNumBotones.Text); fila++)
         {
-            esValido = false;
-            mensajeError = error.Message;
+            filasBotones = new HorizontalStackLayout();
+
+            for (int columna = 0; columna < Metodos.ConvertirInt(EntryNumBotones.Text); columna++)
+            {
+                contadorBotones++;
+
+                // Adición a la fila + Subscripción al evento
+                filasBotones.Children.Add(CrearBoton(contadorBotones.ToString(), 60));
+            }
+
+            MainVSL.Add(filasBotones);
+
+
         }
-        finally
-        {
-            if (!esValido) MostrarMensaje($"Error: {mensajeError}");
-        }
+
+
     }
 
+    /// <summary>
+    /// Adición a la fila + Subscripción al evento
+    /// </summary>
+    /// <param name="text">Texto del botón</param>
+    /// <param name="tamanio">Altura y anchura del botón</param>
+    /// <returns>Botón creado con nuestros ajustes</returns>
     private Button CrearBoton(string text, int tamanio)
     {
         Button button = new Button
         {
             Text = text,
             WidthRequest = tamanio,
-            HeightRequest = tamanio
+            HeightRequest = tamanio,
+            BackgroundColor = Colors.Blue,
+            TextColor = Colors.White
 
 
         };
@@ -82,16 +89,19 @@ public partial class Ejercicio01 : ContentPage
 
 
     private void ButtonClicked(object sender, EventArgs e)
-	{
+    {
         Button boton = (Button)sender;
 
-        MostrarMensaje(boton.Text);
+        if (boton.BackgroundColor == Colors.Blue) boton.BackgroundColor = Colors.Green;
+        else if (boton.BackgroundColor == Colors.Green) boton.BackgroundColor = Colors.Red;
+        else boton.BackgroundColor = Colors.Blue;
 
-	}
+        MostrarMensaje($"Botón pulsado: {boton.Text}");
+    }
 
     private void MostrarMensaje(string mensaje)
     {
-        DisplayAlert("Mensaje", mensaje, "Ok");
+        DisplayAlert("Notificación", mensaje, "Ok");
     }
 
 

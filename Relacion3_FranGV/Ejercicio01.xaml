@@ -4,7 +4,8 @@
              x:Class="Relacion3_FranGV.Ejercicio01"
              Title="Ejercicio01">
     <VerticalStackLayout
-        x:Name="MainVSL">
+        x:Name="MainVSL"
+        HorizontalOptions="Center">
         <Label 
             Text="Ingrese el número de botones que desee:"
             VerticalOptions="Center" 
