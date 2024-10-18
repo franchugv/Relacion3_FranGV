@@ -105,7 +105,7 @@ public partial class Ejercicio01 : ContentPage
 
         Button boton = (Button)sender;
 
-        EstadosBotones botones = new EstadosBotones(boton, ColoresBoton.Blue);
+        EstadosBotones botones = new EstadosBotones(boton);
 
         botones.AsignacionColores();
 

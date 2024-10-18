@@ -10,10 +10,12 @@
         private Button _boton;
 
         // CONSTRUCTORES
-
-        public EstadosBotones(Button boton, ColoresBoton coloresBoton)
+        public EstadosBotones(Button boton)
         {
-            _boton = boton;
+            _boton = boton;            
+        }
+        public EstadosBotones(Button boton, ColoresBoton coloresBoton) :this(boton)
+        {
             _boton.BackgroundColor = ObtenerColor(coloresBoton);
         }
 
