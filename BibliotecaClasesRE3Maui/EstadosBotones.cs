@@ -42,7 +42,7 @@
             else _boton.BackgroundColor = Colors.Blue;
         }
 
-        // Método para convertir el enum a un color 
+        // Convertir el enum a un color 
         private Color ObtenerColor(ColoresBoton coloresBoton)
         {
             Color color = new Color();
