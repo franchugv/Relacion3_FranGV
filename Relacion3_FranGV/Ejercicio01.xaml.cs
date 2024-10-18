@@ -1,3 +1,5 @@
+using BibliotecaClasesRE3Maui7;
+
 namespace Relacion3_FranGV;
 
 public partial class Ejercicio01 : ContentPage
@@ -99,11 +101,13 @@ public partial class Ejercicio01 : ContentPage
 
     private void ButtonClicked(object sender, EventArgs e)
     {
+
+
         Button boton = (Button)sender;
 
-        if (boton.BackgroundColor == Colors.Blue) boton.BackgroundColor = Colors.Green;
-        else if (boton.BackgroundColor == Colors.Green) boton.BackgroundColor = Colors.Red;
-        else boton.BackgroundColor = Colors.Blue;
+        EstadosBotones botones = new EstadosBotones(boton, ColoresBoton.Blue);
+
+        botones.AsignacionColores();
 
         MostrarMensaje($"Botón pulsado: {boton.Text}");
     }

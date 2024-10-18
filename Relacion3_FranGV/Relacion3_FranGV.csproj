@@ -53,6 +53,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\BibliotecaClasesRE3Maui\BibliotecaClasesRE3Maui.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Ejercicio01.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

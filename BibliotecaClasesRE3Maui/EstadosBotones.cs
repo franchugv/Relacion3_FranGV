@@ -1,21 +1,19 @@
-﻿using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
-
-namespace BibliotecaClasesRE3
+﻿namespace BibliotecaClasesRE3Maui7
 {
+
     // Enum
     public enum ColoresBoton : byte { Blue, Green, Red }
 
-    public class EstadosBotones :Button
+    public class EstadosBotones : Button
     {
         // MIEMBROS
-        private Button _boton = new Button();
+        private Button _boton;
 
         // CONSTRUCTORES
 
-        public EstadosBotones(ColoresBoton coloresBoton)
+        public EstadosBotones(Button boton, ColoresBoton coloresBoton)
         {
-            _boton = new Button();
+            _boton = boton;
             _boton.BackgroundColor = ObtenerColor(coloresBoton);
         }
 
@@ -42,7 +40,7 @@ namespace BibliotecaClasesRE3
             else _boton.BackgroundColor = Colors.Blue;
         }
 
-        // Método para convertir el enum a un color válido
+        // Método para convertir el enum a un color 
         private Color ObtenerColor(ColoresBoton coloresBoton)
         {
             Color color = new Color();
