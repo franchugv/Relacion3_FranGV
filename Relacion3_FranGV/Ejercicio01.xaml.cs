@@ -104,12 +104,15 @@ public partial class Ejercicio01 : ContentPage
 
 
         Button boton = (Button)sender;
-
+        // Instanciar clase EstadosBotones
+        // con el botón que hayamos clickeado
         EstadosBotones botones = new EstadosBotones(boton);
 
+        // Hacemos el cambio de color
         botones.AsignacionColores();
 
-        MostrarMensaje($"Botón pulsado: {boton.Text}");
+        // Mostramos el texto del botón pulsado
+        MostrarMensaje($"Botón pulsado: {botones.Boton.Text}");
     }
 
     private void MostrarMensaje(string mensaje)
