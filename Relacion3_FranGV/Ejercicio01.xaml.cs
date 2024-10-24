@@ -75,7 +75,7 @@ public partial class Ejercicio01 : ContentPage
     }
 
     /// <summary>
-    /// Adición a la fila + Subscripción al evento
+    /// Adición a la fila + Subscripción al eventoj
     /// </summary>
     /// <param name="text">Texto del botón</param>
     /// <param name="tamanio">Altura y anchura del botón</param>
